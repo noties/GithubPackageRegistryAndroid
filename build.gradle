@@ -38,5 +38,10 @@ ext {
 }
 
 if (hasProperty('release')) {
-    ext.RELEASE_REPOSITORY_URL = 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
+//    ext.RELEASE_REPOSITORY_URL = LOCAL_MAVEN_URL
+//    ext.SNAPSHOT_REPOSITORY_URL = LOCAL_MAVEN_URL
+
+    ext.NEXUS_USERNAME = 'noties'
+    ext.NEXUS_PASSWORD = GITHUB_PACKAGE_REGISTRY_TOKEN
+//    ext.RELEASE_REPOSITORY_URL = 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
 }

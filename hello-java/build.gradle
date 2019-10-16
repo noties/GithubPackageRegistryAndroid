@@ -1,3 +1,30 @@
-//if (hasProperty('release')) {
-//    apply from: config['push-aar-gradle']
-//}
+apply plugin: 'java'
+
+if (hasProperty('release')) {
+    apply plugin: "maven-publish"
+    publishing {
+        repositories {
+            maven {
+                name = "HelloJava"
+                url = uri("https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid")
+                credentials {
+                    username = 'noties'
+                    password = GITHUB_PACKAGE_REGISTRY_TOKEN
+                }
+            }
+        }
+        publications {
+            gpr(MavenPublication) {
+                // so, artifactId will be ${groupId}.${artifactId}
+                // and actual maven group id will be com.github.${user}
+                //
+                // cannot publish of same version (it's not bad, just to know)
+                groupId 'io.noties.gpra.blah'
+                artifactId 'hello-java-yo'
+                version '0.1.2'
+                
+                from(components.java)
+            }
+        }
+    }
+}
