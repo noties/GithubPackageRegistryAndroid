@@ -1,3 +1,9 @@
+if (hasProperty('CI')) {
+    // okay, _default_ (provided by github) token cannot write to package registry...
+    ext.GITHUB_PACKAGE_REGISTRY_TOKEN = System.getenv('GITHUB_TOKEN')
+    ext.VERSION_NAME = System.getenv('GITHUB_SHA')
+}
+
 buildscript {
     repositories {
         google()
@@ -37,10 +43,4 @@ ext {
             'x-annotations': 'androidx.annotation:annotation:1.1.0',
             'adapt'        : 'io.noties:adapt:2.2.0'
     ]
-}
-
-if (hasProperty('CI')) {
-    // okay, _default_ (provided by github) token cannot write to package registry...
-    ext.GITHUB_PACKAGE_REGISTRY_TOKEN = System.getenv('GITHUB_TOKEN')
-    ext.VERSION_NAME = System.getenv('GITHUB_SHA')
 }
