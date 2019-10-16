@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
 
@@ -6,7 +6,6 @@ android {
     buildToolsVersion config['build-tools']
 
     defaultConfig {
-        applicationId 'io.noties.gpra.app'
         minSdkVersion config['min-sdk']
         targetSdkVersion config['target-sdk']
         versionCode 1
@@ -15,5 +14,9 @@ android {
 }
 
 dependencies {
-    implementation project(':hola-android')
+    api deps['x-annotations']
+}
+
+if (hasProperty('release')) {
+    apply from: config['push-aar-gradle']
 }

@@ -1,2 +1,3 @@
 include ':app'
+include ':hello-java', ':hola-android'
 rootProject.name='GithubPackageRegistryAndroid'

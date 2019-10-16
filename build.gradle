@@ -23,10 +23,20 @@ task clean(type: Delete) {
 }
 
 ext {
+
     config = [
             'min-sdk'        : 21,
             'target-sdk'     : 28,
             'build-tools'    : '28.0.3',
-            'push-aar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-aar.gradle'
+            'push-aar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-aar.gradle',
+            'push-jar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-jar.gradle'
     ]
+
+    deps = [
+            'x-annotations': 'androidx.annotation:annotation:1.1.0'
+    ]
+}
+
+if (hasProperty('release')) {
+    ext.RELEASE_REPOSITORY_URL = 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
 }
