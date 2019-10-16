@@ -23,7 +23,6 @@ if (hasProperty('release')) {
     publishing {
         repositories {
             maven {
-                name = "HolaAndroid"
                 url = uri("https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid")
                 credentials {
                     username = 'noties'
@@ -37,9 +36,9 @@ if (hasProperty('release')) {
                 // and actual maven group id will be com.github.${user}
                 //
                 // cannot publish of same version (it's not bad, just to know)
-                groupId 'io.noties.gpra'
-                artifactId 'hola-android'
-                version '0.1.3'
+//                groupId 'io.noties.gpra'
+                artifactId 'hola'
+                version '0.1.5'
 
                 from(components.android)
             }

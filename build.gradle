@@ -16,7 +16,7 @@ allprojects {
         jcenter()
     }
     version = VERSION_NAME
-    group = GROUP
+//    group = GROUP
 }
 
 task clean(type: Delete) {

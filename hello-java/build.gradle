@@ -5,7 +5,6 @@ if (hasProperty('release')) {
     publishing {
         repositories {
             maven {
-                name = "HelloJava"
                 url = uri("https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid")
                 credentials {
                     username = 'noties'
