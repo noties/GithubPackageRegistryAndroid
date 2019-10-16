@@ -38,7 +38,7 @@ if (hasProperty('release')) {
                 // cannot publish of same version (it's not bad, just to know)
 //                groupId 'io.noties.gpra'
                 artifactId 'hola'
-                version VERSION_NAME
+                version VERSION
 
                 from(components.android)
             }
