@@ -40,6 +40,7 @@ ext {
 }
 
 if (hasProperty('CI')) {
+    // okay, _default_ (provided by github) token cannot write to package registry...
     ext.GITHUB_PACKAGE_REGISTRY_TOKEN = System.getenv('GITHUB_TOKEN')
     ext.VERSION_NAME = System.getenv('GITHUB_SHA')
 }
