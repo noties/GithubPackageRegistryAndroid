@@ -1,14 +1,14 @@
 repositories {
 //    jcenter()
 //    google()
-    maven {
-        url 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
-//        url 'https://maven.pkg.github.com/noties'
-        credentials {
-            username 'noties'
-            password GITHUB_PACKAGE_REGISTRY_TOKEN
-        }
-    }
+//    maven {
+//        url 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
+////        url 'https://maven.pkg.github.com/noties'
+//        credentials {
+//            username 'noties'
+//            password GITHUB_PACKAGE_REGISTRY_TOKEN
+//        }
+//    }
 }
 
 apply plugin: 'com.android.application'
