@@ -28,8 +28,8 @@ android {
 }
 
 dependencies {
-//    implementation project(':hola-android')
-//    implementation project(':hello-java')
+    implementation project(':hola-android')
+    implementation project(':hello-java')
 
 //    implementation 'io.noties.gpra:hola-android:0.1.3'
 //    implementation 'com.github.noties:io.noties.gpra.hola-android:0.1.3'
@@ -44,5 +44,5 @@ dependencies {
     // *but fails with `Could not get resource` and `Could not HEAD`... `Received status code 405 from server: Method Not Allowed`
     // https://github.com/gradle/gradle/issues/5322
     // although download fails -> github counts it
-    implementation 'GithubPackageRegistryAndroid:hola:0.1.5'
+//    implementation 'GithubPackageRegistryAndroid:hola:0.1.5'
 }

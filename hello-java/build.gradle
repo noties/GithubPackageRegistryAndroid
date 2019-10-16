@@ -18,9 +18,9 @@ if (hasProperty('release')) {
                 // and actual maven group id will be com.github.${user}
                 //
                 // cannot publish of same version (it's not bad, just to know)
-                groupId 'io.noties.gpra'
-                artifactId 'hello-java'
-                version '0.1.2'
+//                groupId 'io.noties.gpra'
+                artifactId 'hello'
+                version VERSION_NAME
 
                 from(components.java)
             }
