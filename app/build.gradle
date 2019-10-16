@@ -1,0 +1,19 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion config['target-sdk']
+    buildToolsVersion config['build-tools']
+
+    defaultConfig {
+        applicationId 'io.noties.gpra.app'
+        minSdkVersion config['min-sdk']
+        targetSdkVersion config['target-sdk']
+        versionCode 1
+        versionName version
+    }
+}
+
+dependencies {
+
+}
