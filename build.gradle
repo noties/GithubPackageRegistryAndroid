@@ -1,9 +1,8 @@
 if (hasProperty('CI')) {
-    // okay, _default_ (provided by github) token cannot write to package registry...
     ext.GITHUB_PACKAGE_REGISTRY_TOKEN = System.getenv('GITHUB_TOKEN')
-    ext.VERSION = System.getenv('GITHUB_SHA')
+    ext.VERSION_NAME = System.getenv('GITHUB_SHA')
 } else {
-    ext.VERSION = VERSION_NAME
+    ext.VERSION_NAME = VERSION
 }
 
 buildscript {
@@ -23,7 +22,7 @@ allprojects {
         google()
         jcenter()
     }
-    version = VERSION
+    version = VERSION_NAME
 //    group = GROUP
 }
 

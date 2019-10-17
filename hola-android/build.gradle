@@ -18,7 +18,7 @@ dependencies {
     api deps['adapt']
 }
 
-if (hasProperty('release')) {
+if (false && hasProperty('release')) {
     apply plugin: 'digital.wup.android-maven-publish'
     publishing {
         repositories {
@@ -38,12 +38,19 @@ if (hasProperty('release')) {
                 // cannot publish of same version (it's not bad, just to know)
 //                groupId 'io.noties.gpra'
                 artifactId 'hola'
-                version VERSION
+                version VERSION_NAME
 
                 from(components.android)
             }
         }
     }
+}
+
+if (true && hasProperty('release')) {
+    ext.RELEASE_REPOSITORY_URL = ext.SNAPSHOT_REPOSITORY_URL = 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
+    ext.NEXUS_USERNAME = 'noties'
+    ext.NEXUS_PASSWORD = GITHUB_PACKAGE_REGISTRY_TOKEN
+    apply from: config['publish-aar-gradle']
 }
 
 
