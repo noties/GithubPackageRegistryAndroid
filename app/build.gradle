@@ -1,15 +1,15 @@
-repositories {
+//repositories {
 //    jcenter()
 //    google()
 //    maven {
 //        url 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
-////        url 'https://maven.pkg.github.com/noties'
+//        url 'https://maven.pkg.github.com/noties'
 //        credentials {
 //            username 'noties'
 //            password GITHUB_PACKAGE_REGISTRY_TOKEN
 //        }
 //    }
-}
+//}
 
 apply plugin: 'com.android.application'
 
@@ -28,8 +28,8 @@ android {
 }
 
 dependencies {
-    implementation project(':hola-android')
-    implementation project(':hello-java')
+//    implementation project(':hola-android')
+//    implementation project(':hello-java')
 
 //    implementation 'io.noties.gpra:hola-android:0.1.3'
 //    implementation 'com.github.noties:io.noties.gpra.hola-android:0.1.3'
@@ -45,4 +45,11 @@ dependencies {
     // https://github.com/gradle/gradle/issues/5322
     // although download fails -> github counts it
 //    implementation 'GithubPackageRegistryAndroid:hola:0.1.5'
+//    implementation 'GithubPackageRegistryAndroid:hola-android-2:0.2.0'
+
+    // also, works* (pushed with modified Chris Banes script)
+//    implementation 'GithubPackageRegistryAndroid:hola2:0.2.2'
+
+    // doesn't work if repo url doesn't have username and package
+//    implementation 'noties.GithubPackageRegistryAndroid:hola2:0.2.2'
 }

@@ -3,7 +3,7 @@ package io.noties.gpra.app;
 import android.app.Activity;
 import android.os.Bundle;
 
-import io.noties.gpra.android.HolaAndroid;
+//import io.noties.gpra.android.HolaAndroid;
 
 public class MainActivity extends Activity {
 
@@ -12,6 +12,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HolaAndroid.saySomething(this);
+//        HolaAndroid.saySomething(this);
     }
 }

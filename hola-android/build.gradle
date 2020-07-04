@@ -47,10 +47,46 @@ if (false && hasProperty('release')) {
 }
 
 if (true && hasProperty('release')) {
-    ext.RELEASE_REPOSITORY_URL = ext.SNAPSHOT_REPOSITORY_URL = 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid'
-    ext.NEXUS_USERNAME = 'noties'
-    ext.NEXUS_PASSWORD = GITHUB_PACKAGE_REGISTRY_TOKEN
-    apply from: config['publish-aar-gradle']
+
+    apply plugin: 'maven'
+
+    afterEvaluate { project ->
+        uploadArchives {
+            repositories {
+                mavenDeployer {
+
+//                    pom.groupId = GROUP
+                    pom.artifactId = 'hola2'
+                    pom.version = VERSION_NAME
+
+                    repository(url: 'https://maven.pkg.github.com/noties/GithubPackageRegistryAndroid') {
+                        authentication(userName: 'noties', password: GITHUB_PACKAGE_REGISTRY_TOKEN)
+                    }
+                }
+            }
+        }
+
+        task androidJavadocs(type: Javadoc) {
+            source = android.sourceSets.main.java.srcDirs
+            classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        }
+
+        task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+            classifier = 'javadoc'
+            from androidJavadocs.destinationDir
+        }
+
+        task androidSourcesJar(type: Jar) {
+            classifier = 'sources'
+            from android.sourceSets.main.java.sourceFiles
+        }
+
+        artifacts {
+            archives androidSourcesJar
+            archives androidJavadocsJar
+        }
+    }
+
 }
 
 
